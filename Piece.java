@@ -1,4 +1,4 @@
-public class Piece {
+public abstract class Piece {
 
 	// Piece définiti par un type et une couleur
 
