@@ -17,15 +17,22 @@ public abstract class Piece {
 	}
 	
 	
-	public String getType () {
+	public String getType() {
 		return this.type;
 	}
 	
-	public String getCouleur () 
+	public String getCouleur() 
 	{
 		return this.couleur;
 	}
 
+	public String getPosX() {
+		return this.posX;
+	}
+	
+	public String getPosY() {
+		return this.posY;
+	}
 
 	public String toString () 
 	{
