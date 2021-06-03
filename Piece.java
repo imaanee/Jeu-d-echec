@@ -6,6 +6,7 @@ public abstract class Piece {
 	private String couleur;
 	private String posX;
 	private String posY;
+	//private Case case ;
 	
 	// CONSTRUCTEUR ===================================================================
 	
@@ -18,6 +19,7 @@ public abstract class Piece {
 		this.couleur = uneCouleur;
 		this.posX = initX;
 		this.posY = initY;
+		//this.case = uneCase ;
 	}
 	// fin constructeur
 	
@@ -65,7 +67,11 @@ public abstract class Piece {
 	
 	
 	// METHODES UTILITAIRES ============================================================
+	/**public Case getCase()
+	{
+	    return this.case ;
 	
+	}*/
 	
 	/**
 	 *  retourne la chaine de caracteres representant la piece courante
@@ -78,6 +84,10 @@ public abstract class Piece {
 			   " position ordonnee : " + this.getPosY();
 	}
 	// fin methode toString
+	
+	public abstract boolean coupValide(Case c) ; 
+	
+	
 
 
 }
