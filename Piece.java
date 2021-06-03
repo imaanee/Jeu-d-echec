@@ -82,6 +82,7 @@ public abstract class Piece {
 			   " couleur : "           + this.getCouleur() + 
 			   "position abscisse : "  + this.getPosX() +
 			   " position ordonnee : " + this.getPosY();
+		           //" case : " + this.getCase();
 	}
 	// fin methode toString
 	
