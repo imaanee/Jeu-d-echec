@@ -9,15 +9,18 @@ public class Tour extends Piece {
 	}
 	public String toString()
 	{
-		s = "type=" + this.getType() + "/n" + "couleur=" + this.getCouleur();
-		return s;
 		
+		return super.toString();
 		
 	}
 	
-	public boolean move( int Depx)
+public boolean coupValide(Case caseArriv) // la case d'arrivee
 	{
 		
+		Case debut = this.getCase();
+		
+		int debutLigne = debut.getLigne();
+		int arrivLigne = caseArriv.getLigne();
 		
 		
 	}
