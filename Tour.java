@@ -1,26 +1,53 @@
 public class Tour extends Piece {
 	
+	// CONSTRUCTEUR ===================================================================
 	
-	public Tour(String couleur , String type)
+	/**
+	 *   Initialise une tour 
+	 */	
+	public Tour(boolean uneCouleur, Case c) 
 	{
-		super(couleur , type);
-		
-		
+		super(uneCouleur, c);
 	}
-	public String toString()
-	{
-		
-		return super.toString();
-		
-	}
+	// fin du constructeur
 	
-public boolean coupValide(Case caseArriv) // la case d'arrivee
+	
+	// METHODES ========================================================================
+	
+	/**
+	 *   Verifie si le deplacement du depart a l'arrive est valide
+	 * return true si c'est le cas et false sinon
+	 */		
+	public boolean deplacementValid(Case arrivee)
 	{
+		Case depart = this.getCase();
+		int ligneDep = depart.getLigne()  ;
+		int colDep   = depart.getColonne();
 		
-		Case debut = this.getCase();
+		int ligneArr = arrivee.getLigne()  ;
+		int colArr   = arrivee.getColonne();
 		
-		int debutLigne = debut.getLigne();
-		int arrivLigne = caseArriv.getLigne();
+		if (ligneArr == ligneDep && colArr != colDep) return true;
 		
+		if (colArr == colDep && ligneArr != ligneDep) return true;
 		
+		return false;	
 	}
+	// fin methode deplacement valide
+	
+
+	
+	// METHODES UTILITAIRES ============================================================
+	
+	/**
+	 *  retourne la chaine de caracteres representant la tour courante
+	 */
+	public String toString() 
+	{
+		return "Tour " + super.toString();		
+	}
+	//fin methode toString
+	
+	
+}
+// fin classe Tour
