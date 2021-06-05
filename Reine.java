@@ -17,7 +17,7 @@ public class Reine extends Piece {
 	/**
 	 *   Verifie si le deplacement du depart a l'arrive est valide
 	 *  return true si c'est le cas et false sinon
-	 *  dans le cas de la reine, il suffit de reprendre les verifications du roi, du fou et de la tour
+	 *  dans le cas de la reine, il suffit de reprendre les verifications du fou et de la tour
 	 */		
 	public boolean deplacementValid(Case arrivee)
 	{
@@ -28,18 +28,23 @@ public class Reine extends Piece {
 		int ligneArr = arrivee.getLigne()  ;
 		int colArr   = arrivee.getColonne();
 		
-		if (depart == arrivee) return false;
+		
+		// verification deplacement du fou
+		
+		for ( int i = 1 ; i < 8 ; i++ )
+        {
+			if  ( colDep != colArr )
+			{ 
+				if (ligneArr == ligneDep + i  ) return true ; 
+				if (ligneArr == ligneDep - i  ) return true ; 
+		    }
+		}		
+		
 		
 		// verfiication deplacement de la tour
 		if (ligneArr == ligneDep && colArr != colDep) return true;
 		if (colArr == colDep && ligneArr != ligneDep) return true;	
-		
-		
-		// verification deplacement du fou
-		for ( int i = 1 ; i < 8 ; i++ )
-        {
-			if ( (colDep != colArr) && (ligneArr == ligneDep + i) ) return true ; 
-		}
+
 
 		return false;
 		
