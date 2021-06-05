@@ -2,7 +2,7 @@ public class Case {
 	
 	// VARIABLES ======================================================================
 	
-	private boolean couleur;
+	private boolean couleur;    // on admettra true est une case blanche, false est une case noire
 	private int     ligne  ;
 	private int     colonne;
 	
@@ -33,8 +33,8 @@ public class Case {
 	
 	
 	/**
-	 *   retourne la couleur de la piece courante
-	    on admettra que true pour une piece blanche et false une piece noire
+	 *   retourne la couleur de la case courante
+	    on admettra que true pour une case blanche et case une piece noire
 	 */
 	public String getNomCouleur()
 	{
@@ -89,7 +89,7 @@ public class Case {
 	
 	public String toString()
 	{
-		return "je suis une piece : " + this.getNomCouleur() +
+		return "je suis une case : " + this.getNomCouleur() +
 			   " sur la ligne "       + this.getLigne()      +   
 			   " et sur la colonne "  + this.getNomColonne()    ;
 	}
