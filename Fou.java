@@ -13,7 +13,7 @@ public class Fou extends Piece
 		
 	}
 	
-	public boolean deplaceValid(Case arrivee) // la case d'arrivee
+	public boolean deplacementValid(Case arrivee) // la case d'arrivee
 	{
 		
 		Case debut = this.getCase();
