@@ -66,6 +66,7 @@ public abstract class Piece {
 		       " sur "				+ this.getCase();
 	}
 	// fin methode toString
-
+        
+	public abstract  boolean coupValide(Case caseArriv) {}
 
 }
