@@ -65,7 +65,7 @@ public class Pion extends Piece {
 	// METHODES UTILITAIRES ============================================================
 	
 	/**
-	 *  retourne la chaine de caracteres representant le roi courant
+	 *  retourne la chaine de caracteres representant le pion courant
 	 */
 	public String toString() 
 	{
