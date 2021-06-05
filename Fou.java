@@ -12,6 +12,7 @@ public class Fou extends Piece
 		" je suis un fou ";
 		
 	}
+	
 	public boolean deplaceValid(Case arrivee) // la case d'arrivee
 	{
 		
@@ -26,26 +27,21 @@ public class Fou extends Piece
 		
 		if (debut == arrivee) return false;
 		if ( debut.getCouleur() != arrivee.getCouleur() ) return false ; 
-		
-		
-		
+
 		
 		int t[] = { 1, 2, 3, 4, 5 , 6 , 7 ,8 };
 		for ( int i = 1 ; i < t.length ; i++ )
-        {
-			if  (( debutColonne != arrivColonne )&& ( arrivLigne == debutLigne + i  ))
-			{
-				return true ; 
-		    }
-			
-			
-			 
-			
-		}		
+     	 	{
+			if  ( debutColonne != arrivColonne )
+			{ 
+				if (arrivLigne == debutLigne + i  ) return true ; 
+				if (arrivLigne == debutLigne - i  ) return true ; 
+		        }
+		}	
+			 		
 		
 		return false ; 
 
-	
 	}
 		
 }
