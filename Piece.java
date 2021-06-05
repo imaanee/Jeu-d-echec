@@ -2,45 +2,28 @@ public abstract class Piece {
 
 	// VARIABLES ======================================================================
 
-	private String type;
-	private String couleur;
-	private String posX;
-	private String posY;
-	//private Case case ;
+	private boolean couleur;   // on admettra true est une piece blanche, false est une piece noire
+	private Case     c     ; 
 	
 	// CONSTRUCTEUR ===================================================================
 	
 	/**
 	 *   Initialise une piece
 	 */
-	public Piece(String unType, String uneCouleur, String initX, String initY) 
+	public Piece(boolean uneCouleur, Case uneCase) 
 	{
-		this.type    = unType;
 		this.couleur = uneCouleur;
-		this.posX = initX;
-		this.posY = initY;
-		//this.case = uneCase ;
+		this.c       = uneCase   ;
 	}
 	// fin constructeur
 	
 	
-	
 	// METHODES D'ACCES ===============================================================
 	
-	
 	/**
-	 *   retourne le type de la piece courante
+	 *   retourne le boolean de la piece courante
 	 */
-	public String getType() {
-		return this.type;
-	}
-	// fin methode getType
-	
-	
-	/**
-	 *   retourne la couleur de la piece courante
-	 */
-	public String getCouleur() 
+	public boolean getCouleur()
 	{
 		return this.couleur;
 	}
@@ -48,47 +31,41 @@ public abstract class Piece {
 	
 	
 	/**
-	 *   retourne la postion actuelle en abscisse de la piece courante
+	 *   retourne la couleur de la piece courante
 	 */
-	public String getPosX() {
-		return this.posX;
+	public String getNomCouleur()
+	{
+		if (couleur)
+			return "blanche";
+		else
+			return "noire";
 	}
-	// fin methode getPosX
+	// fin methode getNomCouleur
 	
 	
 	/**
-	 *   retourne la postion actuelle en ordonnee de la piece courante
+	 *   retourne la case sur laquelle se trouve la piece courante
 	 */
-	public String getPosY() {
-		return this.posY;
+	public Case getCase()
+	{
+		return this.c;
 	}
-	// fin methode getPosY
+	// fin methode getCase
+		
 	
 	
 	
 	// METHODES UTILITAIRES ============================================================
-	/**public Case getCase()
-	{
-	    return this.case ;
-	
-	}*/
 	
 	/**
 	 *  retourne la chaine de caracteres representant la piece courante
 	 */
 	public String toString () 
 	{
-		return "piece : "              + this.getType() + 
-			   " couleur : "           + this.getCouleur() + 
-			   "position abscisse : "  + this.getPosX() +
-			   " position ordonnee : " + this.getPosY();
-		           //" case : " + this.getCase();
+		return "je suis une piece de couleur  " + this.getType() + 
+			   " sur la case "					+ this.getCase();
 	}
 	// fin methode toString
-	
-	public abstract boolean coupValide(Case c) ; 
-	
-	
 
 
 }
