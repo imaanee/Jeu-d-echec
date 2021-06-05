@@ -52,7 +52,9 @@ public abstract class Piece {
 	}
 	// fin methode getCase
 		
-
+	
+	
+	
 	// METHODES UTILITAIRES ============================================================
 	
 	/**
@@ -61,7 +63,7 @@ public abstract class Piece {
 	public String toString () 
 	{
 		return "je suis une piece de couleur  " + this.getNomCouleur() + 
-		       " sur la case "			+ this.getCase();
+		       " sur "				+ this.getCase();
 	}
 	// fin methode toString
 
