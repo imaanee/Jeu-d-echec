@@ -89,7 +89,7 @@ public class Case {
 	
 	public String toString()
 	{
-		return "je suis une case : " + this.getNomCouleur() +
+		return "une case " + this.getNomCouleur() +
 			   " sur la ligne "       + this.getLigne()      +   
 			   " et sur la colonne "  + this.getNomColonne()    ;
 	}
