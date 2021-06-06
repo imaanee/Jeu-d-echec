@@ -3,11 +3,11 @@ public class Roi extends Piece {
 	// CONSTRUCTEUR ===================================================================
 	
 	/**
-	 *   Initialise un roi 
+	 *   Initialise un roi, on appelera roi "K" pour King (afin de le diferrencier de la reine)
 	 */	
 	public Roi(boolean uneCouleur, Case c) 
 	{
-		super(uneCouleur, c);
+		super("K", uneCouleur, c);
 	}
 	// fin du constructeur
 	
@@ -38,7 +38,6 @@ public class Roi extends Piece {
 	// fin methode deplacement valide
 	
 
-	
 	// METHODES UTILITAIRES ============================================================
 	
 	/**
@@ -46,7 +45,7 @@ public class Roi extends Piece {
 	 */
 	public String toString() 
 	{
-		return "je suis un roi " + super.toString();		
+		return super.toString();		
 	}
 	//fin methode toString
 	
