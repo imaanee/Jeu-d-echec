@@ -7,14 +7,12 @@ public class Pion extends Piece {
 	 */	
 	public Pion(boolean uneCouleur, Case c) 
 	{
-		super(uneCouleur, c);
+		super("P", uneCouleur, c);
 	}
 	// fin du constructeur
 	
 	
 	// METHODES ========================================================================
-	
-
 	
 	/**
 	 *   Verifie si le deplacement du depart a l'arrive est valide
@@ -60,16 +58,15 @@ public class Pion extends Piece {
 	}
 	// fin methode deplacement valide
 	
-
 	
 	// METHODES UTILITAIRES ============================================================
 	
 	/**
-	 *  retourne la chaine de caracteres representant le pion courant
+	 *  retourne la chaine de caracteres representant le roi courant
 	 */
 	public String toString() 
 	{
-		return "je suis un pion " + super.toString();		
+		return super.toString();		
 	}
 	//fin methode toString
 	
