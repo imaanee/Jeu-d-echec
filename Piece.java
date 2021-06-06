@@ -1,7 +1,8 @@
-public abstract class Piece {
+public class Piece {
 
 	// VARIABLES ======================================================================
 
+	private String  nom    ;    // le nom correspond au type de piece : Tour, Roi, Pion etc
 	private boolean couleur;   // on admettra true est une piece blanche, false est une piece noire
 	private Case     c     ; 
 	
@@ -10,15 +11,27 @@ public abstract class Piece {
 	/**
 	 *   Initialise une piece
 	 */
-	public Piece(boolean uneCouleur, Case uneCase) 
+	public Piece(String unNom, boolean uneCouleur, Case uneCase) 
 	{
+		this.nom     = unNom;
 		this.couleur = uneCouleur;
 		this.c       = uneCase   ;
+		this.c.setVide(false)    ;
 	}
 	// fin constructeur
 	
 	
 	// METHODES D'ACCES ===============================================================
+	
+	/**
+	 *   retourne le nom de la piece courante
+	 */
+	public String getNom()
+	{
+		return this.nom;
+	}
+	// fin methode getNom
+	
 	
 	/**
 	 *   retourne le boolean de la piece courante
@@ -36,9 +49,9 @@ public abstract class Piece {
 	public String getNomCouleur()
 	{
 		if (couleur)
-			return "blanche";
+			return "B";
 		else
-			return "noire";
+			return "N";
 	}
 	// fin methode getNomCouleur
 	
@@ -51,10 +64,8 @@ public abstract class Piece {
 		return this.c;
 	}
 	// fin methode getCase
-		
 	
-	
-	
+
 	// METHODES UTILITAIRES ============================================================
 	
 	/**
@@ -62,11 +73,12 @@ public abstract class Piece {
 	 */
 	public String toString () 
 	{
-		return "je suis une piece de couleur  " + this.getNomCouleur() + 
-		       " sur "				+ this.getCase();
+		return  this.getNom()        + ""   + 
+		        this.getNomCouleur() + " "  + 
+				this.getCase()              ;
 	}
 	// fin methode toString
-        
-	public abstract  boolean coupValide(Case caseArriv) {}
+
 
 }
+// fin classe Piece
