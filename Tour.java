@@ -1,13 +1,12 @@
-public class Tour extends Piece {
-	
+public class Tour extends Piece 
+{	
 	// CONSTRUCTEUR ===================================================================
-	
 	/**
 	 *   Initialise une tour 
 	 */	
 	public Tour(boolean uneCouleur, Case c) 
 	{
-		super(uneCouleur, c);
+		super("T", uneCouleur, c);
 	}
 	// fin du constructeur
 	
@@ -35,7 +34,6 @@ public class Tour extends Piece {
 	}
 	// fin methode deplacement valide
 	
-
 	
 	// METHODES UTILITAIRES ============================================================
 	
@@ -44,7 +42,7 @@ public class Tour extends Piece {
 	 */
 	public String toString() 
 	{
-		return "Tour " + super.toString();		
+		return super.toString();		
 	}
 	//fin methode toString
 	
