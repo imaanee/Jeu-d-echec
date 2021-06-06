@@ -3,11 +3,12 @@ public class Cavalier extends Piece {
 	// CONSTRUCTEUR ===================================================================
 	
 	/**
-	 *   Initialise un cavalier 
+	 *   Initialise un cavalier
 	 */	
 	public Cavalier(boolean uneCouleur, Case c) 
 	{
-		super(uneCouleur, c);
+		super("C", uneCouleur, c);
+		
 	}
 	// fin du constructeur
 	
@@ -47,7 +48,7 @@ public class Cavalier extends Piece {
 	 */
 	public String toString() 
 	{
-		return "je suis un cavalier " + super.toString();		
+		return super.toString();		
 	}
 	//fin methode toString
 	
