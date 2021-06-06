@@ -3,11 +3,11 @@ public class Reine extends Piece {
 	// CONSTRUCTEUR ===================================================================
 	
 	/**
-	 *   Initialise une Reine 
+	 *   Initialise une Reine, on appelera reine "Q" pour Queen (afin de la differencier du roi)
 	 */	
 	public Reine(boolean uneCouleur, Case c) 
 	{
-		super(uneCouleur, c);
+		super("Q", uneCouleur, c);
 	}
 	// fin du constructeur
 	
@@ -30,21 +30,18 @@ public class Reine extends Piece {
 		
 		
 		// verification deplacement du fou
-		
 		for ( int i = 1 ; i < 8 ; i++ )
-        {
+                {
 			if  ( colDep != colArr )
 			{ 
 				if (ligneArr == ligneDep + i  ) return true ; 
 				if (ligneArr == ligneDep - i  ) return true ; 
-		    }
+		        }
 		}		
-		
 		
 		// verfiication deplacement de la tour
 		if (ligneArr == ligneDep && colArr != colDep) return true;
 		if (colArr == colDep && ligneArr != ligneDep) return true;	
-
 
 		return false;
 		
@@ -52,7 +49,6 @@ public class Reine extends Piece {
 	// fin methode deplacement valide
 	
 
-	
 	// METHODES UTILITAIRES ============================================================
 	
 	/**
@@ -60,7 +56,7 @@ public class Reine extends Piece {
 	 */
 	public String toString() 
 	{
-		return "Reine " + super.toString();		
+		return super.toString();		
 	}
 	//fin methode toString
 	
