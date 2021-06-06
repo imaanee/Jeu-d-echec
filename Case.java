@@ -5,6 +5,8 @@ public class Case {
 	private boolean couleur;    // on admettra true est une case blanche, false est une case noire
 	private int     ligne  ;
 	private int     colonne;
+	private boolean vide   ;   // true la case est vide, false une piece est sur la case
+	private Piece   p      ;  // Piece qui se situe sur la case, p = null si la case est vide
 	
 	// CONSTRUCTEUR ===================================================================
 	
@@ -13,9 +15,10 @@ public class Case {
 	 */
 	public Case(boolean uneCouleur, int uneLigne, int uneColonne)
 	{
-		this.couleur = uneCouleur;
+		this.couleur = uneCouleur; 
 		this.ligne   = uneLigne  ;
 		this.colonne = uneColonne;
+		this.vide    = true      ;
 	}
 	// fin du constructeur
 	
@@ -23,7 +26,7 @@ public class Case {
 	// METHODES D'ACCES ===============================================================
 	
 	/**
-	 *   retourne le boolean de la case courante
+	 *   retourne le boolean qui represente la couleur de la case courante
 	 */
 	public boolean getCouleur()
 	{
@@ -85,15 +88,76 @@ public class Case {
 		}
 	}
 	// fin methode getNomColonne
+
+
+	/**
+	 *   retourne le boolean qui represente si la case est vide de la case courante
+	 */
+	public boolean getVide()
+	{
+		return this.vide;
+	}
+	// fin methode getVide
 	
 	
+	/**
+	 *   retourne la chaine de caractere correspondante selon si une piece se trouve sur la case courante ou non
+	 */
+	public String getNomVide()
+	{
+		if (vide)
+			return " case vide";
+		else
+			return " une piece est sur la case";
+	}
+	// fin methode getNomVide
+
+	
+	/**
+	 *   si une case n'est pas vide retourne la chaine de caractere correspondant a la piece, retourne "case vide" sinon
+	 */
+	public String getPiece()
+	{
+		if (this.p == null) return "case vide";
+		
+		else return p.toString();
+	}
+	// fin methode getPiece
+
+
+	/**
+	 *   permet de changer la case en tant que vide ou non
+	 */
+	public void setVide(boolean v)
+	{
+		this.vide = v;
+	}
+	// fin methode getNomVide
+
+
+	/**
+	 *   permet a la case courante de savoir qu'elle piece se trouve sur elle
+	 */
+	public void setCase(Piece p)
+	{
+		Case c = new Case(this.getCouleur(), this.getLigne(), this.getColonne());
+		this.p = new Piece(p.getNom(), p.getCouleur(), p.getCase());
+	}
+	// fin methode setCase
+
+
+
+	// METHODES UTILITAIRES ============================================================
+	
+	/**
+	 *  retourne la chaine de caracteres representant la piece courante
+	 */
 	public String toString()
 	{
-		return "une case " + this.getNomCouleur() +
-			   " sur la ligne "       + this.getLigne()      +   
-			   " et sur la colonne "  + this.getNomColonne()    ;
+		return "sur case "           + this.getNomCouleur() +
+			   " " + this.getLigne() + this.getNomColonne() ;
 	}
-	
+	// fin methode toString
 
 }
 // fin de la classe Case
