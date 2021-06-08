@@ -68,6 +68,15 @@ public class Case {
 	}
 	// fin methode getColonne
 	
+	/**
+	 *   modifie ligne de la case courante
+	 */	
+	public  void setLigne(int i)
+	{
+		this.ligne = i;
+	}
+	//fin methode setLigne
+	
 	
 	/**
 	 *   retourne le nom de colonne de la case courante
@@ -89,7 +98,6 @@ public class Case {
 	}
 	// fin methode getNomColonne
 
-
 	/**
 	 *   retourne le boolean qui represente si la case est vide de la case courante
 	 */
@@ -98,7 +106,6 @@ public class Case {
 		return this.vide;
 	}
 	// fin methode getVide
-	
 	
 	/**
 	 *   retourne la chaine de caractere correspondante selon si une piece se trouve sur la case courante ou non
@@ -112,28 +119,25 @@ public class Case {
 	}
 	// fin methode getNomVide
 
-	
 	/**
 	 *   si une case n'est pas vide retourne la chaine de caractere correspondant a la piece, retourne "case vide" sinon
 	 */
-	public String getPiece()
+	public Piece getPiece()
 	{
-		if (this.p == null) return "case vide";
-		
-		else return p.toString();
+		return this.p;
 	}
 	// fin methode getPiece
-
 
 	/**
 	 *   permet de changer la case en tant que vide ou non
 	 */
 	public void setVide(boolean v)
 	{
+		if (vide == true) this.p = null;
+		
 		this.vide = v;
 	}
 	// fin methode getNomVide
-
 
 	/**
 	 *   permet a la case courante de savoir qu'elle piece se trouve sur elle
@@ -145,6 +149,65 @@ public class Case {
 	}
 	// fin methode setCase
 
+	/**
+	 *   compare une case avec la case courante
+	 */
+	public boolean equals(Object o)
+	{
+		if (o == null) return false;
+		if (!(o instanceof Case)) return false;
+		
+		Case c = (Case) o;
+		
+		if (this.couleur != c.couleur)
+		{
+			System.out.println("equals pb couleur case");
+			return false;		
+		}
+		
+		if ( this.ligne   != c.ligne)
+		{
+			System.out.println("equals pb ligne case");
+			return false;		
+		}
+
+		if (this.colonne != c.colonne)
+		{
+			System.out.println("equals pb colonne case");
+			return false;		
+		}
+
+		if (this.vide != c.vide )
+		{
+			System.out.println("equals pb case vide");
+			return false;		
+		}		
+		
+		else return true;
+		
+	}
+	//fin methode equals
+	
+	/**
+	 *   donne les memes valeurs d'attributs a la case courante que la case passee en parametre
+	 */
+	public void devientEquals(Case c)
+	{
+		if (this.equals(c) == false)
+		{
+			this.couleur = c.couleur;
+			this.ligne   = c.ligne  ;
+			this.colonne = c.colonne;
+			this.vide    = c.vide   ;
+		}
+	}
+	//fin methode devientEquals
+
+
+	public String getNomPiece()
+	{
+		return this.getPiece().toString().substring(0, 2);
+	}
 
 
 	// METHODES UTILITAIRES ============================================================
@@ -154,8 +217,8 @@ public class Case {
 	 */
 	public String toString()
 	{
-		return "sur case "           + this.getNomCouleur() +
-			   " " + this.getLigne() + this.getNomColonne() ;
+		return "case "           + this.getNomCouleur() +
+			   " " + this.getNomColonne() + this.getLigne() ;
 	}
 	// fin methode toString
 
