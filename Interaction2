@@ -1,0 +1,115 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Interaction {
+	
+	private Partie partie;
+	private Joueur joueur;
+	private boolean AquiTour;
+	
+	public boolean JouerPartie() // true pour nouvelle partie et false pour charger une partie déjà commencee 
+	{
+		System.out.println("Jeu d'echec" + "\n" + "Pour commencer une nouvelle partie , selectionner le numéro 1 " + "\n" 
+		                                                          + "pour charger une partie commencee , selectionner le numéro 2 ");
+		Scanner scan = new Scanner(System.in);
+		int choixP = scan.nextInt();
+		
+		if (choixP == 1)
+		{
+			
+		     System.out.println("Nouvelle partie !  " );
+			 return true;
+             			 
+			
+			
+		}
+		if (choixP == 2)  
+        {
+			System.out.println(" Chargement de la partie ! ");
+			return false;
+			
+			//utilisation de la méthode charger !!
+			
+			
+			
+		} 
+		
+		
+		if ( (choixP != 1) && (choixP != 2) )
+		{
+			 System.out.println("\n" + "Attention erreur de saisie! Veuillez tapez :" + "\n" + "1 pour commencer une nouvelle partie" + "\n" + "2 pour charger  une  partie commencee" + "\n");
+		     scan = new Scanner(System.in);
+			 choixP = scan.nextInt();
+			 
+		} 
+		
+		
+	return false;
+       		
+		
+		
+	}
+	
+	
+	public int ChoixJoueurBlanc() // ca c'est uniquement si nouvelle partie
+	{
+		boolean b = this.JouerPartie();
+		
+		if (b == true )
+		{
+			System.out.println("Bienvenue dans cette nouvelle partie. Commencons par determiner le joueur Blanc" + "\n" + "Tapez 1 si vous voulez que le Joueur 1 joue les pions blanc" + "\n" + "Tapez 2 si vous voulez que le Joueur 2 joue les pions blanc" + "\n" + "Tapez 3 si vous voulez generer un choix aleatoire" + "\n");
+		    Scanner scan = new Scanner(System.in);
+		    int choixJ = scan.nextInt();
+		
+		   if ( (choixJ != 1) && (choixJ != 2) && (choixJ != 3) )
+		   {
+			   System.out.println("\n" + "Attention erreur de saisie! Veuillez tapez :" + "\n" + "1 si le Joueur 1 joue les blanc" + "\n" + "2 si le Joueur 2 joue les blanc" + "\n" + "3 si vous voulez generer un choix aleatoire" + "\n");
+		       scan = new Scanner(System.in);
+			   choixJ = scan.nextInt();
+			   
+			
+		   }
+		  
+		   if (choixJ == 3)
+		    {
+			   double j = Math.random();
+			   double k = Math.random();
+			   
+			   if (j < k)
+			   {
+				     choixJ = 1;
+				     System.out.println("Vous etes le Joueur 1  blanc");
+				  
+			   } 
+			   else
+			   {			   
+			       choixJ = 2;
+				   System.out.println("Vous etes le Joueur 2  Noir");
+				   
+			   }
+		    } 
+		   
+		
+		    if (choixJ == 1) 
+			{
+				
+				System.out.println("Vous etes le Joueur 1  blanc");
+			
+			}
+		    if (choixJ == 2) 
+			{
+				 
+				System.out.println("Vous etes le Joueur 2  Noir");
+			
+			}
+		    else 
+		        return choixJ;
+		}	
+			
+      
+         return choixJ;	  
+		
+	} 
+
+	
+}
