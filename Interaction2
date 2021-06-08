@@ -61,55 +61,39 @@ public class Interaction {
 		    Scanner scan = new Scanner(System.in);
 		    int choixJ = scan.nextInt();
 		
-		   if ( (choixJ != 1) && (choixJ != 2) && (choixJ != 3) )
-		   {
-			   System.out.println("\n" + "Attention erreur de saisie! Veuillez tapez :" + "\n" + "1 si le Joueur 1 joue les blanc" + "\n" + "2 si le Joueur 2 joue les blanc" + "\n" + "3 si vous voulez generer un choix aleatoire" + "\n");
-		       scan = new Scanner(System.in);
-			   choixJ = scan.nextInt();
-			   
-			
-		   }
+			if ( (choixJ != 1) && (choixJ != 2) && (choixJ != 3) )
+		    {
+				System.out.println("\n" + "Attention erreur de saisie! Veuillez tapez :" + "\n" + "1 si le Joueur 1 joue les blanc" + "\n" + "2 si le Joueur 2 joue les blanc" + "\n" + "3 si vous voulez generer un choix aleatoire" + "\n");
+				scan = new Scanner(System.in);
+				choixJ = scan.nextInt();
+			}
 		  
-		   if (choixJ == 3)
+			if (choixJ == 3)
 		    {
 			   double j = Math.random();
 			   double k = Math.random();
 			   
-			   if (j < k)
-			   {
-				     choixJ = 1;
-				     System.out.println("Vous etes le Joueur 1  blanc");
-				  
-			   } 
-			   else
-			   {			   
-			       choixJ = 2;
-				   System.out.println("Vous etes le Joueur 2  Noir");
-				   
-			   }
+				if (j < k)
+				{
+					choixJ = 1;
+				    System.out.println("Vous etes le Joueur 1  blanc");  
+				}
+			   
+				else
+				{			   
+					choixJ = 2;
+				   System.out.println("Vous etes le Joueur 2  Noir");				   
+				}
+			 
 		    } 
 		   
-		
-		    if (choixJ == 1) 
-			{
-				
-				System.out.println("Vous etes le Joueur 1  blanc");
+		    if (choixJ == 1) System.out.println("Vous etes le Joueur 1  blanc");
 			
-			}
-		    if (choixJ == 2) 
-			{
-				 
-				System.out.println("Vous etes le Joueur 2  Noir");
+		    if (choixJ == 2) System.out.println("Vous etes le Joueur 2  Noir");
 			
-			}
-		    else 
-		        return choixJ;
+		    return choixJ;
 		}	
-			
-      
-         return choixJ;	  
 		
 	} 
 
-	
 }
