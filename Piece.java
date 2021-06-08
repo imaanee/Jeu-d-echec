@@ -5,6 +5,7 @@ public class Piece {
 	private String  nom    ;    // le nom correspond au type de piece : Tour, Roi, Pion etc
 	private boolean couleur;   // on admettra true est une piece blanche, false est une piece noire
 	private Case     c     ; 
+	//private Echiquier e    ;
 	
 	// CONSTRUCTEUR ===================================================================
 	
@@ -65,7 +66,30 @@ public class Piece {
 	}
 	// fin methode getCase
 	
+	
+	public boolean deplacementValid(Case arrivee)
+	{
+		return true;
+	}
+	
 
+	
+	
+	
+	public void move(Case arrivee)
+	{
+		if ( (arrivee.getVide() == true) && (this.deplacementValid(arrivee) == true) )
+		{
+			this.c = arrivee;
+			System.out.println("deplacement ok : nvelle case : " + arrivee.toString() );
+		}
+		
+		else System.out.println("deplacement pas valide/pas ok");
+		
+		
+	}
+	
+	
 	// METHODES UTILITAIRES ============================================================
 	
 	/**
@@ -75,7 +99,7 @@ public class Piece {
 	{
 		return  this.getNom()        + ""   + 
 		        this.getNomCouleur() + " "  + 
-				this.getCase()              ;
+			this.getCase()              ;
 	}
 	// fin methode toString
 
