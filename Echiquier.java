@@ -421,7 +421,7 @@ public class Echiquier {
 	 */
 	public String toString()
 	{
-		return "echiquier " + "\n" + this.affichePlateau() +
+		return "echiquier " + "\n" + this.affichePlateau();
 	}
 	// fin methode toString
 	
