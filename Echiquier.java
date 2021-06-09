@@ -1,6 +1,7 @@
 public class Echiquier {
 	
 	// VARIABLES ======================================================================
+	
 	private Case[][] plateau; 
 	private Piece    p      ;
 
@@ -174,7 +175,10 @@ public class Echiquier {
 		{
 			for (int j = 0; j < 8; j++)
 			{
-				System.out.println(this.plateau[i][j].getPiece());
+				if (this.plateau[i][j].getPiece() == null) System.out.println("vide "+ this.plateau[i][j]);
+					
+				
+				else System.out.println("  " + this.plateau[i][j].getPiece());
 			}
 		}
 		
@@ -195,11 +199,11 @@ public class Echiquier {
 			String str = " ";
 			for (int j = 0; j < 8; j++)
 			{
-				if (this.plateau[i][j].getVide()) str += "|    ";  // si la case est nulle
+				if (this.plateau[i][j].getVide()) str += "|    ";  // si la case est vide
 	
 				else 
 				{
-	
+
 					String ch = "";
 					ch = this.plateau[i][j].getPiece().toString().substring(0, 2);
 				
@@ -225,12 +229,8 @@ public class Echiquier {
 	 */	
 	public void changerEch(Case depart, Case arrivee)
 	{
-		
 		String str = depart.getNomPiece().substring(0, 1);
-		System.out.println("str de la fonction = " + str);
 		String couleur = depart.getNomPiece().substring(1, 2);
-		System.out.println("couleur de la fonction = " + couleur);
-
 		
 		//La piece passee en parametre est blanche
 		if (couleur.equals("B"))
@@ -243,6 +243,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 
 			if (str.equals("Q"))
@@ -251,6 +252,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 				
 			}
 			
@@ -260,6 +262,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			if (str.equals("C"))
@@ -268,6 +271,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			if (str.equals("T"))
@@ -276,6 +280,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			if (str.equals("P"))
@@ -284,6 +289,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			else System.out.println("sort de B");
@@ -299,6 +305,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			if (str.equals("Q"))
@@ -307,6 +314,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			if (str.equals("F"))
@@ -315,6 +323,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			if (str.equals("C"))
@@ -323,6 +332,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			if (str.equals("T"))
@@ -331,6 +341,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setPiece();
 			}
 			
 			if (str.equals("P"))
@@ -339,6 +350,7 @@ public class Echiquier {
 				this.plateau[arrivee.getLigne()-1][arrivee.getColonne()-1].setCase(p);
 				
 				this.plateau[depart.getLigne()-1][depart.getColonne()-1].setVide(true);
+				
 			}
 		}
 		// fin traitement piece noire
@@ -347,6 +359,71 @@ public class Echiquier {
 		
 	}
 	//fin methode changerEch
+	
+	/**
+	 *   Permet de retourner la piece qui se trouve sur la case passee en parametre
+	 */	
+	public Piece creerPiece(Case c)
+	{
+		String str = c.getNomPiece().substring(0, 2);
+		
+		if (str.equals("KB")) { Piece k1 = new Roi(true,  c); return k1; }
+		if (str.equals("KN")) { Piece k2 = new Roi(false, c); return k2; }
+		
+		if (str.equals("QB")) { Piece q1 = new Reine(true,  c); return q1; }
+		if (str.equals("QN")) { Piece q2 = new Reine(false, c); return q2; }
+		
+		if (str.equals("FB")) { Piece f1 = new Fou(true,  c); return f1; }
+		if (str.equals("FN")) { Piece f2 = new Fou(false, c); return f2; }
+		
+		if (str.equals("TB")) { Piece t1 = new Tour(true,  c); return t1; }
+		if (str.equals("TN")) { Piece t2 = new Tour(false, c); return t2; }
+		
+		if (str.equals("CB")) { Piece c1 = new Cavalier(true,  c); return c1; }
+		if (str.equals("CN")) { Piece c2 = new Cavalier(false, c); return c2; }
+		
+		if (str.equals("PB")) { Piece p1 = new Pion(true,  c); return p1; }
+		if (str.equals("PN")) { Piece p2 = new Pion(false, c); return p2; }
+		
+		return p;
+		
+	}
+	// fin methode creerPiece
+
+
+
+	/**
+	 *   Permet de récuperer la case d'une piece dont le nom est passe en parametre
+	 */	
+	public Case caseDunePiece(String str)
+	{
+		
+		for (int i = 1; i <= 8; i ++)
+		{
+			for (int j = 1; j <= 8; j++)
+			{
+				
+				String ch = this.getCaseEch(i,j).getNomPiece().substring(0, 2);
+		
+				if (ch.equals(str)) return this.getCaseEch(i,j);
+			}			
+		}
+		
+		return null;
+	}
+	// fin methode caseDunePiece
+	
+	
+	// METHODES UTILITAIRES ============================================================
+	
+	/**
+	 *  retourne la chaine de caracteres representant l echiquier courant
+	 */
+	public String toString()
+	{
+		return "echiquier " + "\n" + this.affichePlateau() +
+	}
+	// fin methode toString
 	
 	
 }
