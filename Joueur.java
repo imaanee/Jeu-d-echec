@@ -1,25 +1,69 @@
-public class Joueur{
-	
-	private boolean couleur;	//true le joueur joue pions blanc, false le joueur joue pions noir
-	private int numJ;
+public class Joueur
 
-	public Joueur(boolean uneCouleur, int unNumero)
-	{
-		this.couleur = uneCouleur;
-		this.numJ    = unNumero  ;		
-	}
+{
+	private String joueur ;
+	private boolean couleurJ;
+	private Piece p;
 	
 	
-	public getCouleur()
-	{
-		return this.couleur;		
-	}
-	
-	public getNumJ()
-	{
-		return this.numJ;
-	}
 
+	public Joueur(String unJoueur, boolean uneCouleur)
+	{
+		this.joueur = unJoueur;
+		this.couleurJ = uneCouleur;
+		
+		
+	}
+	public boolean getJoueurCouleur()
+	{
+		return this.couleurJ ;
+		
+		
+		
+	}
+	public String getJoueurNomCoul()
+	{
+		
+		if (couleurJ)
+		    return " Joueur blanc ";
+		else 
+		    return " Joueur noir " ; 
+	}
 	
+	
+	public String getJoueurPieceCoul()
+	
+	{
+		
+		if (this.couleurJ == true  )
+		
+		{
+			
+			
+			return " vous possedez les pieces blanches ";
+			
+		}
+		else 
+            	
+		    return "vous possedez les pieces noirs ";
+		
+	}
+	
+	public String toString()
+	{
+		return " Vous etes le " + this.getJoueurNomCoul() + "\n" 
+		                        + this.getJoueurPieceCoul();
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+
+
 }
 //fin classe Joueur
