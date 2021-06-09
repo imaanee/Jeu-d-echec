@@ -44,7 +44,7 @@ public class Case {
 		if (couleur)
 			return "blanche";
 		else
-			return "noire";
+			return "noire  ";
 	}
 	// fin methode getNomCouleur
 	
@@ -133,7 +133,7 @@ public class Case {
 	 */
 	public void setVide(boolean v)
 	{
-		if (vide == true) this.p = null;
+		if (vide == true);
 		
 		this.vide = v;
 	}
@@ -206,7 +206,16 @@ public class Case {
 
 	public String getNomPiece()
 	{
-		return this.getPiece().toString().substring(0, 2);
+		if (this.getVide() == true) return "PAS DE PIECE!!!!!!!";
+		
+		else return this.getPiece().toString().substring(0, 2);
+	}
+
+
+
+	public void setPiece()
+	{
+		if (this.vide == true) this.p = null;
 	}
 
 
@@ -217,10 +226,13 @@ public class Case {
 	 */
 	public String toString()
 	{
-		return "case "           + this.getNomCouleur() +
-			   " " + this.getNomColonne() + this.getLigne() ;
+		return "case " + this.getNomCouleur() +
+			   " "     + this.getNomColonne() +
+			             this.getLigne()      ;
 	}
 	// fin methode toString
 
 }
 // fin de la classe Case
+
+
