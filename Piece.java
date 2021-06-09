@@ -67,15 +67,7 @@ public class Piece {
 	// fin methode getCase
 	
 	
-	public boolean deplacementValid(Case arrivee)
-	{
-		return true;
-	}
-	
-
-	
-	
-	
+	// pas encore utilisee
 	public void move(Case arrivee)
 	{
 		if ( (arrivee.getVide() == true) && (this.deplacementValid(arrivee) == true) )
@@ -85,10 +77,21 @@ public class Piece {
 		}
 		
 		else System.out.println("deplacement pas valide/pas ok");
-		
-		
 	}
 	
+	
+	/**
+	 *   donne les memes valeurs d'attributs a la piece courante que celle passee en parametre
+	 */	
+	public void devientEquals(Piece p)
+	{
+		this.nom      = p.nom;
+		this.couleur  = p.couleur ;
+		this.c        = p.c;
+	}
+	// fin methode devientEquals
+	
+
 	
 	// METHODES UTILITAIRES ============================================================
 	
@@ -99,7 +102,7 @@ public class Piece {
 	{
 		return  this.getNom()        + ""   + 
 		        this.getNomCouleur() + " "  + 
-			this.getCase()              ;
+				this.getCase()              ;
 	}
 	// fin methode toString
 
