@@ -67,19 +67,6 @@ public class Piece {
 	// fin methode getCase
 	
 	
-	// pas encore utilisee
-	public void move(Case arrivee)
-	{
-		if ( (arrivee.getVide() == true) && (this.deplacementValid(arrivee) == true) )
-		{
-			this.c = arrivee;
-			System.out.println("deplacement ok : nvelle case : " + arrivee.toString() );
-		}
-		
-		else System.out.println("deplacement pas valide/pas ok");
-	}
-	
-	
 	/**
 	 *   donne les memes valeurs d'attributs a la piece courante que celle passee en parametre
 	 */	
