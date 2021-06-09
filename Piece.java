@@ -67,6 +67,14 @@ public class Piece {
 	// fin methode getCase
 	
 	
+	//methode abstraite
+	public boolean deplacementValid(Case arrivee)
+	{
+		return true;
+	}
+	
+
+	
 	/**
 	 *   donne les memes valeurs d'attributs a la piece courante que celle passee en parametre
 	 */	
@@ -78,7 +86,8 @@ public class Piece {
 	}
 	// fin methode devientEquals
 	
-
+	
+	
 	
 	// METHODES UTILITAIRES ============================================================
 	
