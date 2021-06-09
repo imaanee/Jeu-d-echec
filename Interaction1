@@ -120,3 +120,15 @@ public class Interaction {
 		else 
 		   System.out.println("C'est au JOUEUR NOIR de jouer");
 	}
+	
+	public void aquiLeTour()
+	{
+		if (AquiTour)
+		{
+			System.out.println("Le Joueur Blanc, c'est à votre tour ! ");
+			
+		}
+		else 
+		    System.out.println("Le Joueur Noir, c'est à votre tour ! ");
+		
+	}
