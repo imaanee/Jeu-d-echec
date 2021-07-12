@@ -1,0 +1,209 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Interaction {
+	
+	private Partie partie;
+	private Joueur joueur;
+	private boolean AquiTour;
+	static final String colonne[] = {"A", "B", "C", "D", "E", "F", "G", "H"};
+
+	public Interaction(Partie par)
+	{
+		this.partie = par;	
+	}
+
+	public Partie getPartie()
+	{
+		return this.partie;		
+	}
+	
+	public Joueur getJoueur()
+	{
+		return this.joueur;		
+	}
+
+	public boolean getAquiTour()
+	{
+		return this.AquiTour;		
+	}	
+	
+
+
+	public boolean JouerPartie() // true pour nouvelle partie et false pour charger une partie déjà commencee 
+	{
+		System.out.println("Jeu d'echec" + "\n" + "Pour commencer une nouvelle partie , selectionner le numero 1 " 
+		                                 + "\n" + "Pour charger une partie commencee , selectionner le numero 2  ");
+		Scanner scan = new Scanner(System.in);
+		int choixP = scan.nextInt();
+		
+
+		if (choixP == 1)
+		{
+			System.out.println("Nouvelle partie !  " );
+			return true;			
+        }
+		
+		else if (choixP == 2)  
+        {
+			System.out.println(" Chargement de la partie ! ");
+			return false;
+			
+			//utilisation de la méthode charger !!
+		}
+		
+		else 
+		{
+			System.out.println(" Aucune partie a charger , voulez - vous commencer une nouvelle partie ?  Tapez 1 ");
+		}
+		
+		if ( (choixP != 1) || (choixP != 2))
+		{    
+			do
+            {
+				System.out.println("\n" + "Attention erreur de saisie! Veuillez tapez :" + "\n" + "1 pour commencer une nouvelle partie" + "\n" + "2 pour charger  une  partie commencee" + "\n");
+				scan = new Scanner(System.in);
+				choixP = scan.nextInt();
+				
+			}while( (choixP != 1) && (choixP != 2)); 
+        } 
+        
+		else choixP = 1;
+		
+		return false ;	
+	}
+	
+	
+	public int ChoixJoueurBlanc() // ca c'est uniquement si nouvelle partie
+	{
+		boolean b = this.JouerPartie();
+		
+		if (b == true )
+		{
+			System.out.println("Bienvenue dans cette nouvelle partie. Commencons par determiner le joueur Blanc" + "\n" + "Tapez 1 si vous voulez jouer les pieces blanches" + "\n" + "Tapez 2 si vous voulez jouer les pieces noires " + "\n" + "Tapez 3 si vous voulez generer un choix aleatoire" + "\n");
+		    Scanner scan = new Scanner(System.in);
+		    int choixJ = scan.nextInt();
+		
+			if ( (choixJ != 1) && (choixJ != 2) && (choixJ != 3) )
+		    {
+				System.out.println("\n" + "Attention erreur de saisie! Veuillez tapez :" + "\n" + "1 pour jouer les blanc" + "\n" + "2 pour jouer les noir" + "\n" + "3 si vous voulez generer un choix aleatoire" + "\n");
+				scan = new Scanner(System.in);
+				choixJ = scan.nextInt();
+			}
+		  
+			if (choixJ == 3)
+		    {
+			   double j = Math.random();
+			   double k = Math.random();
+			   
+				if (j < k)
+				{
+					choixJ = 1;
+				    System.out.println("Vous etes le Joueur   blanc");
+                    return 1;					
+				}
+			   
+				else
+				{			   
+				   choixJ = 2;
+				   System.out.println("Vous etes le Joueur  Noir");
+                   return 0 ; 			   
+				}
+			    
+		    } 
+		   
+		    if (choixJ == 1) System.out.println("Vous etes le Joueur  blanc");
+			
+		    if (choixJ == 2) System.out.println("Vous etes le Joueur  Noir");
+			
+		    
+			return choixJ;
+		}
+        
+      return 0;		
+		
+	}
+	
+	/**public void quiCommence()
+	{
+		Random alea = new Random();
+		AquiTour = alea.nextBoolean();
+		if (AquiTour == true ) 
+		{
+		   System.out.println("C'est au JOUEUR BLANC de jouer");
+		   
+		
+		}
+		else 
+		   System.out.println("C'est au JOUEUR NOIR de jouer");
+	}**/
+	
+	public void aquiLeTour()
+	{
+		if (AquiTour)
+		{
+			System.out.println("Joueur Blanc, c'est à votre tour ! ");
+		}
+		
+		else System.out.println("Joueur Noir, c'est à votre tour ! ");
+	}
+	
+	
+	public Case caseDep()
+	{
+		System.out.println("Veuillez choisir votre case initiale. Commencez par la colonne : ");
+		Scanner scan = new Scanner(System.in);
+		String str = scan.nextLine();
+		int i = 0;
+		while (str.equals(colonne[i]) == false) i++;
+	
+		int colDep = i+1;
+		
+		
+		System.out.println("Passons maintenant a la ligne : ");
+		Scanner scan2 = new Scanner(System.in);
+		int ligneDep = scan.nextInt();
+	
+		
+		Case c = this.getPartie().getArbitre().getEchiquier().getCaseEch(ligneDep, colDep);
+		System.out.println("Vous avez choisi la piece " + c.getPiece());
+		
+		return c;		
+	}
+	
+	
+	
+	public Case caseArr()
+	{
+		System.out.println("\n" + "Veuillez choisir votre case d'arrivee. Commencez par la colonne : ");
+		Scanner scan = new Scanner(System.in);
+		String str = scan.nextLine();
+		int i = 0;
+		while (str.equals(colonne[i]) == false) i++;
+	
+		int colDep = i+1;
+		
+		
+		System.out.println("Passons maintenant a la ligne : ");
+		Scanner scan2 = new Scanner(System.in);
+		int ligneDep = scan.nextInt();
+	
+		
+		
+		Case c = this.getPartie().getArbitre().getEchiquier().getCaseEch(ligneDep, colDep);
+		System.out.println("Vous avez choisi la " + c);
+		
+		return c;		
+	}
+	
+	
+	
+	public String toString()
+	{
+		return "Interaction de la partie " + this.getPartie();
+		
+	}
+	
+	
+}
+//fin classe Interaction
